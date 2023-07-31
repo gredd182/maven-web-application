@@ -18,7 +18,7 @@ stages:
   - job: Build
     displayName: Build
     pool: Default
-      t
+      
     steps:
     - task: Docker@2
       displayName: Build an image
@@ -26,4 +26,4 @@ stages:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
-          $(tag)
+          $(Tomcatimage)
