@@ -24,7 +24,8 @@ variables:
   inputs:
     awsCredentials: 'AWS-Eks'
     regionName: 'eu-north-1'
-    imageSource: 'imageid'
+    imageSource: 'imagename'
+    sourceImageName: 'tag'
     repositoryName: 'azurepipeline'
   tag: '$(Build.BuildId)'
 
