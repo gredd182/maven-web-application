@@ -1,4 +1,10 @@
 # Docker
+- task: ECRPullImage@1
+  inputs:
+    awsCredentials: 'AWS-Eks'
+    regionName: 'eu-north-1'
+    repository: 'azurepipeline'
+    imageSource: 'imagetag'
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -14,6 +20,12 @@ variables:
   imageRepository: 'greddmavenwebapplication'
   containerRegistry: 'omshanthi.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+- task: ECRPushImage@1
+  inputs:
+    awsCredentials: 'AWS-Eks'
+    regionName: 'eu-north-1'
+    imageSource: 'imageid'
+    repositoryName: 'azurepipeline'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
